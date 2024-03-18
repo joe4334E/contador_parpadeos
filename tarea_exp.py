@@ -81,11 +81,11 @@ with mp_face_mesh.FaceMesh(
             for landmark in left_eye_landmarks:
                 cv.circle(frame, tuple(landmark), 2, (0, 0, 255), -1)
             # Dibujar la malla facial completa
-            #for face_landmarks in results.multi_face_landmarks:
-            #    for landmark in face_landmarks.landmark:
-            #       x = int(landmark.x * img_w)
-            #       y = int(landmark.y * img_h)
-            #       cv.circle(frame, (x, y), 1, (255, 0, 0), -1)
+            for face_landmarks in results.multi_face_landmarks:
+                for landmark in face_landmarks.landmark:
+                   x = int(landmark.x * img_w)
+                   y = int(landmark.y * img_h)
+                   cv.circle(frame, (x, y), 1, (255, 0, 0), -1)
 
             # Calcular la apertura de la boca
             mouth_opening = open_len(mouth_landmarks)
