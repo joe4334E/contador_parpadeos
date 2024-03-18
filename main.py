@@ -32,7 +32,16 @@ fatigue_sound = pygame.mixer.Sound('alarm1.wav')
 yawn_sound = pygame.mixer.Sound('wake_up.wav')
 
 # Manejador de la cámara web
-cap = cv.VideoCapture(1)
+cap = None
+for i in range(4):  # Intenta hasta 4 cámaras (puedes ajustar el rango según tus necesidades)
+    cap = cv.VideoCapture(i)
+    if cap.isOpened():
+        break
+
+if cap is None or not cap.isOpened():
+    print("No se pudo abrir ninguna cámara.")
+else:
+    print(f"Se abrió la cámara con índice {i}.")
 
 # Parámetros de MediaPipe
 with mp_face_mesh.FaceMesh(
