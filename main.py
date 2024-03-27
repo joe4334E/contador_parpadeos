@@ -32,7 +32,7 @@ fatigue_sound = pygame.mixer.Sound('alarm1.wav')
 yawn_sound = pygame.mixer.Sound('wake_up.wav')
 
 # Manejador de la cámara web
-cap = cv.VideoCapture(1)
+cap = cv.VideoCapture(0)
 
 # Parámetros de MediaPipe
 with mp_face_mesh.FaceMesh(
